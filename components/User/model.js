@@ -7,28 +7,21 @@ const UserSchema = new mongoose.Schema({
 });
 const User = mongoose.model("User", UserSchema);
 
-// Function to authenticate a user and password.
-// Returns true if authenticated, false if not.
 async function authenticateUser(username, pw) {
   let key = scryptSync(pw, process.env.SALT, 64);
-  //check for existing user with matching hashed password
   let result = await User.findOne({
     user: String(username),
     password: key.toString("base64")
   });
   return (result) ? true : false;
 }
+
 async function getUser(username) {
-  //just check if username exists already
   let result = await User.findOne({ user: String(username) });
-  /* if (result) {
-    return result;
-  }
-  return false; */
   return (result) ? result : false;
 }
+
 async function addUser(username, pw) {
-  //add user if username doesn't exist
   let user = await getUser(username);
   console.log(user);
   if (!user) {
