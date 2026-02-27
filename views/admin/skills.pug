@@ -1,0 +1,25 @@
+extends ../common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Skills
+    a.btn-primary(href="/admin/skills/add") Add Skill
+    table(border="1")
+      thead
+        tr
+          th Name
+          th Category
+          th Proficiency
+          th Actions
+      tbody
+        each skill in skills
+          tr
+            td #{skill.name}
+            td #{skill.category}
+            td #{skill.proficiency}
+            td
+              a(href=`/admin/skills/${skill._id}/edit`) Edit
+              |  | 
+              a(href=`/admin/skills/${skill._id}/delete`, onclick="return confirm('Delete this skill?')") Delete
+    if skills.length === 0
+      p No skills yet. Please click "Add Skill" above to create your first skill.

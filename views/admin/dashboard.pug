@@ -1,0 +1,12 @@
+extends ../common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Admin Dashboard
+    p Welcome, #{user}
+    h2 Admin Links
+    ul
+      li: a(href="/admin/projects") Manage Projects
+      li: a(href="/admin/skills") Manage Skills
+      li: a(href="/api/projects") Projects API Endpoint
+      li: a(href="/api/skills") Skills API Endpoint

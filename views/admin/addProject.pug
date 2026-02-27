@@ -1,0 +1,23 @@
+extends ../common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Add Project
+    form(method="post", action="/admin/projects")
+      div 
+        label(for="title") Title: 
+        input(type="text", id="title", name="title", required)
+      div 
+        label(for="description") Description: 
+        textarea(id="description", name="description")
+      div 
+        label(for="languages") Languages: 
+        input(type="text", id="languages", name="languages")
+      div 
+        label(for="technologies") Technologies: 
+        input(type="text", id="technologies", name="technologies")
+      div 
+        label(for="link") Link: 
+        input(type="url", id="link", name="link")
+      button(type="submit") Add Project
+    p: a(href="/admin/projects") Back to Projects

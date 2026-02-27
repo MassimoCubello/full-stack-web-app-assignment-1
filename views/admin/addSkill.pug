@@ -1,0 +1,17 @@
+extends ../common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Add Skill
+    form(method="post", action="/admin/skills")
+      div 
+        label(for="name") Name: 
+        input(type="text", id="name", name="name", required)
+      div 
+        label(for="category") Category: 
+        input(type="text", id="category", name="category", placeholder="e.g. Programming Language, Framework, Tool")
+      div 
+        label(for="proficiency") Proficiency: 
+        input(type="text", id="proficiency", name="proficiency", placeholder="e.g. Beginner, Intermediate, Advanced")
+      button(type="submit") Add Skill
+    p: a(href="/admin/skills") Back to Skills

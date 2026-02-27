@@ -1,0 +1,17 @@
+extends ../common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Edit Skill
+    form(method="post", action=`/admin/skills/${skill._id}`)
+      div 
+        label(for="name") Name: 
+        input(type="text", id="name", name="name", value=skill.name, required)
+      div 
+        label(for="category") Category: 
+        input(type="text", id="category", name="category", value=skill.category)
+      div 
+        label(for="proficiency") Proficiency: 
+        input(type="text", id="proficiency", name="proficiency", value=skill.proficiency)
+      button(type="submit") Update Skill
+    p: a(href="/admin/skills") Back to Skills
