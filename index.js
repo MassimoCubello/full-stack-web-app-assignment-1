@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import path from "path"; //needed when setting up static/file paths
 import sessions from "express-session";
+import cors from "cors";
 import { connect } from "./db.js";
 
 //import routers
@@ -17,6 +18,9 @@ const __dirname = import.meta.dirname;
 //set up the Express app
 const app = express();
 const port = process.env.PORT || "8888";
+
+// Allow cross-origin requests from any origin.
+app.use(cors());
 
 //set up application template engine
 app.set("views", path.join(__dirname, "views")); //the first "views" is the setting name
